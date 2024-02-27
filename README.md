@@ -25,21 +25,39 @@ RAG_API is a RESTful API designed for researching and retrieving documents based
 - Python 3.7+
 - Pip for Python package installation.
 
+
+
+
+
+
+
+
 ### Installation Steps
 
 1. Clone the repository to your local machine.
-2. Install the required Python packages using pip:
+
+
+2. Install the required Python packages using poetry:
    ```
-   pip install fastapi uvicorn pydantic aiofiles yaml qdrant-client llama-index langchain
+   poetry install
    ```
+
 3. Configure your `config.yml` file according to your setup, specifying the necessary parameters for the language model, Qdrant settings, and embedding model.
 
 ### Running the API
+#### starts ollama server
+   ```
+   docker run -p 6333:6333   qdrant/qdrant:latest
+   ```
+#### starts qdrant server
+   ```
+   docker run -p 6333:6333   qdrant/qdrant:latest
+   ```
 
+#### run fastapi app
 Execute the following command to run the API server:
-
 ```
-uvicorn app:app --reload --host 0.0.0.0 --port 8000
+python app.py
 ```
 
 ## API Endpoints
