@@ -1,0 +1,8 @@
+llm: "mistral"
+embedding: "sentence-transformers/all-mpnet-base-v2"
+qdrant_local: "http://localhost:6333"
+qdrant_timeout: 10
+collection_name: "local_files"
+chunk_size: 1024
+upload_dir: "uploads"
+openai_api_key: "xxxxxxx"
