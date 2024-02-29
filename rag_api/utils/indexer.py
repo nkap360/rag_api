@@ -9,7 +9,7 @@ from tqdm import tqdm
 import qdrant_client
 from langchain.embeddings.huggingface import HuggingFaceEmbeddings
 from llama_index.embeddings.langchain import LangchainEmbedding
-
+from fastembed.embedding import TextEmbedding
 
 
 class FileUploader:
@@ -55,6 +55,8 @@ class FileUploader:
             HuggingFaceEmbeddings(model_name=self.config['embedding'])
         )
         
+        
+        
         print("Embedder modelled")
  
     
@@ -90,9 +92,9 @@ class FileUploader:
     async def ingest(self, embedder, llm):
         print("Indexing data...")
         documents = SimpleDirectoryReader(self.config['upload_dir']).load_data()
+        documents_with_progress = tqdm(documents, desc="Indexing Documents")
 
         #print(documents)
-        #client = qdrant_client.QdrantClient(url=self.qdrant_local)
         qdrant_vector_store = QdrantVectorStore(
                 client= self.qdrant_client , collection_name=self.config['collection_name']
             )
@@ -102,7 +104,7 @@ class FileUploader:
             )
         print(service_context)
         index = VectorStoreIndex.from_documents(
-            documents, storage_context=storage_context, service_context=service_context
+            documents_with_progress, storage_context=storage_context, service_context=service_context
         )
         #print(index)
         print(

@@ -2,6 +2,8 @@
 
 # Importation des modules FastAPI et Pydantic pour la création de l'API et la validation des données.
 from fastapi import FastAPI, UploadFile
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
 # Importation des modules pour la gestion asynchrone des fichiers et la configuration.
@@ -20,6 +22,9 @@ from llama_index.llms.ollama import Ollama
 #2. Initialisation de l'API FastAPI et configuration
 app = FastAPI()
 
+# Mount a static directory
+app.mount("/static", StaticFiles(directory="static"), name="static")
+
 # Chargement de la configuration à partir du fichier YAML.
 with open("config.yml", "r") as conf:
     config = yaml.safe_load(conf)
@@ -30,8 +35,8 @@ llm = Ollama(model=config["llm"], url=config["qdrant_local"])
 
 #3. Point d'entrée de l'API
 @app.get("/")
-def root():
-    return {"message": "Research RAG"}
+async def read_root():
+    return FileResponse("static/welcome_page.html")
 
 #4. Téléversement de fichiers
 file_uploader = FU(config=config, llm=llm)

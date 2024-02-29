@@ -16,7 +16,7 @@ Ensure you have Python 3.10 or newer installed on your system. This project uses
 
 1. Clone the repository to your local machine.
    ```bash
-   git clone https://github.com/yourrepository/rag_api.git
+   git clone https://github.com/nkap360/rag_api.git
    cd rag_api
    ```
 2. Install the required dependencies using Poetry.
