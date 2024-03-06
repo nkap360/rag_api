@@ -1,8 +1,8 @@
-# RAG API Documentation
+# RAG FAST API Documentation
 
 ## Introduction
 
-Welcome to the RAG API, a Rest API designed to facilitate the indexing and querying of documents using state-of-the-art vector search technology. This project is built on FastAPI and leverages Qdrant for vector storage and retrieval, combined with the power of language models for embedding generation. It is intended for developers and researchers looking to integrate advanced search capabilities into their applications.
+Welcome to the RAG FAST API, a Rest API designed to facilitate the indexing and querying of documents using state-of-the-art vector search technology. This project is built on FastAPI and leverages Qdrant for vector storage and retrieval, combined with the power of language models for embedding generation. It is intended for developers and researchers looking to integrate advanced search capabilities into their applications.
 
 ## Features
 

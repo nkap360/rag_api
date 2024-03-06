@@ -14,13 +14,13 @@ torch = "^2.1.2"
 python-multipart = "^0.0.5"
 uvicorn = "^0.17.0"
 fastai = "^2.5.0"
-llama-index-embeddings-huggingface = "^0.10.5"
-llama-index-embeddings-instructor = "^0.10.5"
 sentence-transformers = "^2.1.0"
-llama-index-vector-stores-qdrant = "^0.10.5"
 langchain = "^0.1.7"
-llama-index-embeddings-langchain = "^0.10.5"
-
+llama-index-embeddings-langchain
+llama-index-vector-stores-qdrant
+llama-index-llms-ollama
+aiofiles
+fastapi
 
 [build-system]
 requires = ["poetry-core"]

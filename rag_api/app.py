@@ -8,7 +8,7 @@ from pydantic import BaseModel, Field
 
 # Importation des modules pour la gestion asynchrone des fichiers et la configuration.
 import yaml
-import aiofiles
+
 
 # Importation des utilitaires personnalisés pour le téléversement et la recherche de fichiers.
 from utils.indexer import FileUploader as FU

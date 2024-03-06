@@ -5,19 +5,31 @@ import  os
 import re
 from llama_index.core import VectorStoreIndex,SimpleDirectoryReader,ServiceContext,StorageContext
 from llama_index.vector_stores.qdrant import QdrantVectorStore
-from tqdm import tqdm
-import qdrant_client
 from langchain.embeddings.huggingface import HuggingFaceEmbeddings
 from llama_index.embeddings.langchain import LangchainEmbedding
-from fastembed.embedding import TextEmbedding
+from tqdm import tqdm
+
+# Create Qdrant Client
+from qdrant_client import QdrantClient
+from qdrant_client.http import models
+
+ 
+
 
 
 class FileUploader:
     def __init__(self,config,llm):
         self.config = config
-        self.qdrant_client = qdrant_client.QdrantClient(
+        self.qdrant_client = QdrantClient(
             url=self.config['qdrant_local'],
             timeout=self.config["qdrant_timeout"]
+        )
+        self.qdrant_client.recreate_collection(
+            collection_name=self.config['collection_name'],
+            vectors_config=models.VectorParams(
+            size=768,
+            distance=models.Distance.COSINE
+            )
         )
         self.llm = llm
         os.makedirs(self.config['upload_dir'], exist_ok=True)

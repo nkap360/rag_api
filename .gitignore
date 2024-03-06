@@ -7,3 +7,7 @@ rag_api/utils/__pycache__/indexer.cpython-310.pyc
 rag_api/utils/__pycache__/retriever.cpython-310.pyc
 rag_api/static/*
 tuto/*
+rag_api/utils/__pycache__/indexer.cpython-311.pyc
+rag_api/utils/__pycache__/retriever.cpython-311.pyc
+poetry.lock
+default.sqlite
