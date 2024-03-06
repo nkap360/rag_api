@@ -1,6 +1,6 @@
 from transformers import AutoTokenizer, AutoModel
 import torch
-
+# to be optimized for my local pdf that are scanned
 class CustomEmbedder:
     def __init__(self, model_name):
         """

@@ -77,26 +77,21 @@ class FileUploader:
 
 
     async def save_pdf(self, file: UploadFile, file_path: str):
-        # Implement PDF file saving logic here
-        # Example: Save the PDF to the specified path
         async with aiofiles.open(file_path, "wb") as saved_file:
             await saved_file.write(await file.read())
 
     async def save_csv(self, file: UploadFile, file_path: str):
-        # Implement CSV file saving logic here
-        # Example: Save the CSV to the specified path
+
         async with aiofiles.open(file_path, "wb") as saved_file:
             await saved_file.write(await file.read())
 
     async def save_text(self, file: UploadFile, file_path: str):
-        # Implement text file saving logic here
-        # Example: Save the text file to the specified path
+
         async with aiofiles.open(file_path, "wb") as saved_file:
             await saved_file.write(await file.read())
 
     async def save_json(self, file: UploadFile, file_path: str):
-        # Implement JSON file saving logic here
-        # Example: Save the JSON file to the specified path
+
         async with aiofiles.open(file_path, "wb") as saved_file:
             await saved_file.write(await file.read())
 
